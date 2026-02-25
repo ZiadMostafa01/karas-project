@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://ZiadMostafa01.github.io/vet-clinic",
+  "homepage": "https://ZiadMostafa01.github.io/karas-project",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
     "aos": "^2.3.4",
