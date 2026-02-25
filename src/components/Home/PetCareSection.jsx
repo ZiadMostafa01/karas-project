@@ -1,8 +1,5 @@
-import React from "react";
 import { CheckCircle, Gem } from "lucide-react";
 import img1 from "../../assets/images/61B62C43-EDFF-406C-B6CA-20940299BB03.png";
-import img2 from "../../assets/images/BAV WEBSITE.png";
-import bg from "../../assets/images/paw_img_copy.png";
 
 const servicesLeft = [
   "24/7 Emergency service",
@@ -24,7 +21,7 @@ export default function PetCareSection() {
     <section className="w-full bg-[var(--karas_paper)] py-20 px-4 space-y-16">
       <div className="text-center">
         {" "}
-        <h1 className="font-heading text-3xl md:text-5xl font-serif text-purple-900 mb-2">
+        <h1 className="font-heading text-3xl md:text-5xl font-serif text-[var(--karas_aubergine)] mb-2">
           Deliberate care, grounded in judgment.
         </h1>
       </div>
@@ -51,7 +48,7 @@ export default function PetCareSection() {
             Our Services
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#4b2c73] leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--karas_aubergine)] leading-tight mb-6">
             We love animals as much as you do!
           </h2>
 

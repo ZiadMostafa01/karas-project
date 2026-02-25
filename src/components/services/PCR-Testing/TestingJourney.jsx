@@ -31,7 +31,7 @@ const TestingJourney = () => {
   return (
     <section className="px-4 font-sans">
       <div className="max-w-7xl mx-auto text-center mb-20 font-serif">
-        <h2 className="text-2xl md:text-4xl font-bold text-slate-800 mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-[var(--karas_aubergine)] mb-4">
           The Testing Journey
         </h2>
         <p className="text-slate-500 text-sm sm:text-lg">
@@ -58,10 +58,10 @@ const TestingJourney = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-slate-800 mb-2">
+              <h3 className="text-xl font-bold text-[var(--karas_aubergine)] mb-2">
                 {step.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[200px]">
+              <p className="text-[var(--karas_text)] text-sm leading-relaxed max-w-[200px]">
                 {step.description}
               </p>
             </div>

@@ -27,13 +27,12 @@ const services = [
 function ServicesCards() {
   return (
     <div className="bg-[var(--karas_paper)] py-20 px-4 text-center">
-     
       <div className="font-heading text-center">
         {" "}
-        <h1 className="text-3xl md:text-5xl font-serif text-purple-900 mb-2">
+        <h1 className="text-3xl md:text-5xl font-serif text-[var(--karas_aubergine)] mb-2">
           This Is How We Care
         </h1>
-        <p className="text-gray-600 mb-12 md:text-xl">Our Areas of Care </p>
+        <p className="text-[var(--karas_text)] mb-12 md:text-xl">Our Areas of Care </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -42,15 +41,15 @@ function ServicesCards() {
           return (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center h-full justify-between"
+              className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center h-full justify-between hover:shadow-xl transition duration-300"
             >
               <div className="bg-purple-50 p-4 rounded-full mb-4 flex justify-center items-center">
                 <Icon className="w-8 h-8 text-[var(--karas_aubergine)]" />
               </div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+              <h2 className="text-lg font-semibold text-[var(--karas_aubergine)] mb-2 text-center">
                 {service.title}
               </h2>
-              <p className="text-gray-600 text-center">{service.description}</p>
+              <p className="text-[var(--karas_text)] text-center">{service.description}</p>
             </div>
           );
         })}
