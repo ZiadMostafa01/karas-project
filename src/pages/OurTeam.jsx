@@ -1,9 +1,10 @@
 import PagesHeader from "../components/PagesHeader";
 import Doctors from "../components/team/Doctors";
 import { allStaffData } from "../data/staffData";
+import shape from "../assets/images/shape-services-768x560.WEBP";
 
 const TeamMember = ({ name, title, image }) => (
-  <div className="flex flex-col items-start group">
+  <div className="flex flex-col items-start group  z-10">
     <div className="bg-white p-2 shadow-sm border border-[#e5e1d8] mb-4 w-full aspect-[3/4] overflow-hidden">
       <img
         src={image || "https://via.placeholder.com/400x533"}
@@ -19,7 +20,7 @@ const TeamMember = ({ name, title, image }) => (
 );
 
 const TeamSection = ({ title, subtitle, members }) => (
-  <section className="mb-20">
+  <section className="mb-20 z-10">
     <div className="border-b border-[#d1cdc2] mb-10 pb-2">
       <h2 className="text-2xl font-serif italic text-[#444]">{title}</h2>
       {subtitle && (
@@ -28,7 +29,7 @@ const TeamSection = ({ title, subtitle, members }) => (
         </p>
       )}
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full mx-auto justify-center lg:grid-cols-4 gap-x-10 gap-y-16">
       {members.map((m) => (
         <TeamMember key={m.id} {...m} />
       ))}
@@ -52,6 +53,17 @@ function OurTeam() {
 
   return (
     <div className="bg-[var(--karas_paper)] min-h-screen py-10">
+      {/* <div className="absolute top-500 right-0">
+        <img src={shape} alt="" className="ml-auto w-[600px] max-w-full" />
+      </div>{" "}
+      <div className="absolute bottom-0 left-0">
+        <img
+          src={shape}
+          alt=""
+          className="mr-auto w-[600px] max-w-full rotate-180"
+        />
+      </div> */}
+
       <main className="max-w-7xl mx-auto px-6  ">
         <PagesHeader
           title="Our Team"

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo_main_light.png";
 
 function Footer() {
@@ -11,10 +12,8 @@ function Footer() {
               {" "}
               <img src={logo} className="w-60" alt="" />{" "}
             </h3>
-            <div className="space-y-2 text-sm max-w-sm mb-4">
-              Karas Veterinary Clinic provides loving and professional care for
-              pets. We focus on their health, comfort, and happiness, offering
-              preventive care, treatments, and guidance.
+            <div className="space-y-2 mb-4">
+              Calm, deliberate veterinary care.
             </div>
             <div className="flex gap-2 ">
               <a
@@ -50,60 +49,84 @@ function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Support</h3>
             <div className="flex flex-col gap-2 text-gray-400 text-sm">
-              <a href="" className=" hover:text-white transition">
+              <a href="https://karas.viggo.vet/online-booking/" target="_blank" className=" hover:text-white transition">
                 Book an Appointment
               </a>
-              <a href="" className=" hover:text-white transition">
+              <Link to="/contact" className=" hover:text-white transition">
                 Contact Us
-              </a>
-              <a href="" className=" hover:text-white transition">
-                Customer Support
-              </a>
-              <a href="" className=" hover:text-white transition">
+              </Link>
+          
+              <Link to="/pcr-testing" className=" hover:text-white transition">
                 PCR Testing
-              </a>
+              </Link>
             </div>
           </div>
           <div>
             <h3 className="font-semibold mb-4">Useful Links</h3>
             <div className="flex flex-col gap-2 text-gray-400 text-sm">
-              <a href="" className=" hover:text-white transition">
+              <Link to="/" className=" hover:text-white transition">
                 Home
-              </a>
-              <a href="" className=" hover:text-white transition">
+              </Link>
+              <Link to="/all-services" className=" hover:text-white transition">
                 Our Services
-              </a>
-              <a href="" className=" hover:text-white transition">
+              </Link>
+              <Link to="/our-team" className=" hover:text-white transition">
                 Our Team
-              </a>
-              <a href="" className=" hover:text-white transition">
+              </Link>
+              <Link to="/clinics" className=" hover:text-white transition">
                 Clinics
-              </a>
+              </Link>
             </div>
           </div>
           <div>
             <h3 className="font-semibold mb-4">Our Clinic</h3>
             <div className="flex flex-col gap-2 text-gray-400 text-sm">
-              <a href="" className=" hover:text-white transition">
+              <Link to="/clinics/karas-JLT" className=" hover:text-white transition">
                 JLT Clinic
-              </a>
-              <a href="" className=" hover:text-white transition">
+              </Link>
+              <Link to="/clinics/karas-downtown" className=" hover:text-white transition">
                 Business Bay Clinic{" "}
-              </a>
+              </Link>
               <a
                 href="mailto:management@karasvet.com"
-                className=" hover:text-white transition"
+                className="flex gap-1 items-center hover:text-white transition group"
               >
-                ✉ management@karasvet.com
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>management@karasvet.com</span>
               </a>
+
               <a
                 href="tel:045756444"
-                className="flex items-center gap-2   hover:text-white transition"
+                className="flex items-center gap-1   hover:text-white transition"
               >
                 <svg
                   fill="#000000"
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   className="fill-current"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,10 +144,6 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-center  text-sm">
-          We speak: English - العربية - bosanski - босански - Português -
-          Tagalog - Русский - Українська
-        </div>
       </div>
 
       <hr className="border-gray-700 my-8" />
@@ -134,12 +153,12 @@ function Footer() {
           Copyright © 2026 Karas Veterinary Clinic, All rights reserved.
         </p>
         <p className="flex gap-4 text-gray-400 text-center md:text-right">
-          <a href="" className="hover:text-white transition">
+          <Link to="/privacy-policy" className="hover:text-white transition">
             Privacy Policy
-          </a>
-          <a href="" className="hover:text-white transition">
+          </Link>
+          <Link to="/terms-services" className="hover:text-white transition">
             Terms & Services
-          </a>
+          </Link>
         </p>
       </div>
     </footer>

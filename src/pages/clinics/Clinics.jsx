@@ -51,7 +51,7 @@ const ClinicCard = ({ clinic }) => {
                 </p>
                 <a
                   href={`tel:${clinic.phone}`}
-                  className="text-xs text-slate-600 font-medium hover:text-[#39164f] transition-colors"
+                  className="hover:underline text-xs text-slate-600 font-medium hover:text-[#39164f] transition-colors"
                 >
                   {clinic.phone}
                 </a>
@@ -82,7 +82,7 @@ const ClinicCard = ({ clinic }) => {
               </p>
               <a
                 href={`mailto:${clinic.email}`}
-                className="text-xs text-slate-600 font-medium hover:text-[#39164f] transition-colors"
+                className="hover:underline text-xs text-slate-600 font-medium hover:text-[#39164f] transition-colors"
               >
                 {clinic.email}
               </a>
@@ -150,7 +150,7 @@ const Clinics = () => {
       phone: "+04 575 6 444",
       whatsapp: "971557217848",
       email: "care@karasvet.com",
-      hours: "08:00 AM - 09:00 PM",
+      hours: "09:00 AM - 09:00 PM",
       image: img2,
       googleMapsLink: "https://maps.app.goo.gl/6XvK911EMQ5zTG7W7",
       mapUrl:
@@ -165,7 +165,7 @@ const Clinics = () => {
       phone: "+04 575 6 444",
       whatsapp: "971585830217",
       email: "care.downtown@karasvet.com",
-      hours: "08:00 AM - 9:00 PM",
+      hours: "09:00 AM - 6:00 PM",
       image: img1,
       googleMapsLink: "https://maps.app.goo.gl/VMXz3n2B5joHP68N7",
       mapUrl:

@@ -5,8 +5,10 @@ import img3 from "../../../assets/images/FFAA28D0-D6A0-4C47-80A8-E1529C343958.PN
 import img4 from "../../../assets/images/472602C6-697C-48D8-83B7-CD7C3E69FEB9.PNG";
 import img5 from "../../../assets/images/Gemini_Generated_Image_v6fem9v6fem9v6fe.PNG";
 import img6 from "../../../assets/images/30D5BFD7-AD81-4E94-852B-50150C494D6A.PNG";
+import { Link } from "react-router-dom";
 
 const PreventiveCard = ({
+  id,
   image,
   title,
   subTitle,
@@ -50,10 +52,10 @@ const PreventiveCard = ({
           </div>
         </div>
 
-        <div className="flex justify-start">
+        <div className="flex flex-col sm:flex-row justify-start items-center gap-4 mt-8">
           <a
             href="https://karas.viggo.vet/online-booking/"
-            className="cursor-pointer mt-8 flex items-center group justify-center gap-2 bg-[var(--karas_aubergine)] hover:bg-[var(--karas_aubergine_ink)] text-white px-8 py-3 rounded-lg text-sm font-bold transition-all shadow-lg shadow-[#39164f]/20"
+            className="cursor-pointer flex items-center group justify-center gap-2 bg-[var(--karas_aubergine)] hover:bg-[var(--karas_aubergine_ink)] text-white px-8 py-3 rounded-lg text-sm font-bold transition-all shadow-lg shadow-[#39164f]/20"
           >
             Request Appointment
             <ArrowRight
@@ -61,6 +63,15 @@ const PreventiveCard = ({
               className="transition-transform group-hover:translate-x-1"
             />
           </a>
+
+          {id === 2 && (
+            <Link
+              to="/pcr-testing"
+              className="cursor-pointer flex items-center justify-center gap-2 border border-[var(--karas_aubergine)] text-[var(--karas_aubergine)] hover:bg-[var(--karas_aubergine)] hover:text-white px-8 py-3 rounded-lg text-sm font-bold transition-all shadow-lg shadow-[#39164f]/5"
+            >
+              PCR Testing
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -152,12 +163,13 @@ We prioritize safety, comfort, and long term outcome.
   ];
 
   return (
-    <div className="py-20 px-4 ">
+    <div className="py-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-6">
           {cardsData.map((card, index) => (
             <PreventiveCard
               key={card.id}
+              id={card.id}
               image={card.image}
               title={card.title}
               subTitle={card.subTitle}

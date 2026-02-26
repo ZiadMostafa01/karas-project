@@ -14,6 +14,8 @@ import Clinics from "./pages/clinics/Clinics";
 import KarasJLT from "./pages/clinics/KarasJLT";
 import KarasDowntown from "./pages/clinics/KarasDowntown";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsServices from "./pages/legal/TermsServices";
 
 function App() {
   useEffect(() => {
@@ -41,6 +43,9 @@ function App() {
 
           <Route path="doctor/:id" element={<DoctorDetails />} />
           <Route path="pcr-testing" element={<PCRTesting />} />
+
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-services" element={<TermsServices />} />
         </Route>
       </Routes>
       <ChatBot />
