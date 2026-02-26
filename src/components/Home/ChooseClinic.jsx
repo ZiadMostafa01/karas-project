@@ -16,7 +16,7 @@ function ChooseClinic() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-16">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
         <div className="flex flex-col h-full rounded-lg shadow-md overflow-hidden">
           <img
             src={img1}
