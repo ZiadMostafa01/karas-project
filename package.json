@@ -13,6 +13,7 @@
   },
   "homepage": "https://ZiadMostafa01.github.io/karas-project",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.16",
     "aos": "^2.3.4",
     "lucide-react": "^0.564.0",
