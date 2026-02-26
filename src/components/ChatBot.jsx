@@ -3,11 +3,12 @@ import { MessageSquare, X, Send, RotateCcw } from "lucide-react";
 import logo from "../assets/images/Logo_main_light.png";
 
 // ─── Clinic Knowledge Base ──────────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are Kara, a friendly and knowledgeable virtual assistant for Karas Veterinary Clinics in Dubai... (باقي نص الـ System Prompt)`;
+const SYSTEM_PROMPT = `You are Kara, a friendly and knowledgeable virtual assistant for Karas Veterinary Clinics in Dubai...`;
 
 const Chatbot = () => {
   // ─── State ────────────────────────────────────────────────────────────────────
   const [isOpen, setIsOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true); // حالة إظهار الفقاعة
   const [isTyping, setIsTyping] = useState(false);
   const [inputText, setInputText] = useState("");
   const [messages, setMessages] = useState([
@@ -51,7 +52,10 @@ const Chatbot = () => {
   }, [messages, isTyping]);
 
   useEffect(() => {
-    if (isOpen) setTimeout(() => inputRef.current?.focus(), 300);
+    if (isOpen) {
+      setTimeout(() => inputRef.current?.focus(), 300);
+      setShowTooltip(false); // إخفاء الفقاعة بمجرد فتح الشات
+    }
   }, [isOpen]);
 
   const newChat = () => {
@@ -66,16 +70,12 @@ const Chatbot = () => {
     setInputText("");
   };
 
-  // ─── Chat Logic (Updated for History Persistence) ───────────────────────────────
   const sendMessage = async (text) => {
     const userText = (text || inputText).trim();
     if (!userText || isTyping) return;
 
-    // 1. تجهيز الرسالة الجديدة ككائن (Object)
     const newHistoryItem = { role: "user", content: userText };
-
     setInputText("");
-    // تحديث واجهة المستخدم فوراً بالرسالة اللي كتبها
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userText, time: formatTime() },
@@ -93,8 +93,8 @@ const Chatbot = () => {
           model: API_MODEL,
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
-            ...history, // التاريخ المتخزن فعلياً
-            newHistoryItem, // الرسالة الحالية
+            ...history,
+            newHistoryItem,
           ],
           max_tokens: 512,
           temperature: 0.6,
@@ -106,13 +106,11 @@ const Chatbot = () => {
         data?.choices?.[0]?.message?.content?.trim() ||
         "Error generating response.";
 
-      // 2. تحديث الرسائل في الواجهة برد الـ AI
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: reply, time: formatTime() },
       ]);
 
-      // 3. تحديث الـ History بالرسالتين (المستخدم + الرد) لدعم الذاكرة في الرد القادم
       setHistory((prev) => [
         ...prev,
         newHistoryItem,
@@ -135,7 +133,6 @@ const Chatbot = () => {
 
   const isArabic = (text) => /[\u0600-\u06FF]/.test(text);
 
-  // ─── Formatter (Tailwind Based) ───────────────────────────────────────────────
   const formatMessage = (raw) => {
     return raw.split("\n").map((line, i) => {
       if (!line.trim()) return <div key={i} className="h-2" />;
@@ -151,7 +148,28 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-7 right-3 sm:right-7 z-[9999] font-sans">
+    <div className="fixed bottom-7 right-3 sm:right-7 z-[9999] font-sans flex flex-col items-end">
+      {/* ─── Tooltip Bubble (The "Ask Chat" Message) ─── */}
+      {!isOpen && showTooltip && (
+        <div className="relative mb-4 animate-bounce">
+          <div className="bg-[var(--karas_aubergine)] text-white text-sm font-medium py-2 px-4 rounded-xl shadow-xl flex items-center gap-2 pr-8">
+            <span>Ask Kara anything!</span>
+            {/* Close Tooltip Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowTooltip(false);
+              }}
+              className="absolute right-2 text-white/70 hover:text-white transition-colors"
+            >
+              <X size={14} />
+            </button>
+          </div>
+          {/* Triangle Pointer */}
+          <div className="absolute -bottom-1 right-6 w-3 h-3 bg-[var(--karas_aubergine)] rotate-45"></div>
+        </div>
+      )}
+
       {/* Chat Window */}
       {isOpen && (
         <div className="absolute bottom-20 right-0 max-w-[90vw] w-[480px] max-h-[580px] h-[70vh] bg-[#FAFAF8] rounded-[20px] shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
@@ -190,7 +208,6 @@ const Chatbot = () => {
                     K
                   </div>
                 )}
-
                 <div
                   className={`max-w-[80%] p-3 rounded-[18px] text-sm leading-relaxed shadow-sm ${
                     msg.role === "user"
@@ -263,11 +280,12 @@ const Chatbot = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`cursor-pointer w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 transform hover:scale-110 relative ${
-          isOpen ? "bg-[var(--karas_aubergine)] rotate-90" : "bg-[var(--karas_aubergine)]"
+          isOpen
+            ? "bg-[var(--karas_aubergine)] rotate-90"
+            : "bg-[var(--karas_aubergine)]"
         }`}
       >
         {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
-
         {!isOpen && (
           <>
             {/* الموجة الأولى */}
