@@ -1,5 +1,5 @@
-import img1 from "../../assets/images/jlt-clinic.jpg";
-import img2 from "../../assets/images/business-bay-clinic.jpg";
+import img1 from "../../assets/images/jlt-clinic.jpeg";
+import img2 from "../../assets/images/business-bay-clinic.jpeg";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -17,7 +17,7 @@ function ChooseClinic() {
       </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
-        <div className="flex flex-col h-full rounded-lg shadow-md overflow-hidden">
+        <div className="flex flex-col h-full rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
           <img
             src={img1}
             alt="JLT Clinic"
@@ -46,7 +46,7 @@ function ChooseClinic() {
           </div>
         </div>
 
-        <div className="flex flex-col h-full rounded-lg shadow-md overflow-hidden">
+        <div className="flex flex-col h-full rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
           <img
             src={img2}
             alt="Business Bay Clinic"

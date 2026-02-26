@@ -1,4 +1,4 @@
-import img from "../../assets/images/business-bay-clinic.jpg";
+import img from "../../assets/images/business-bay-clinic.jpeg";
 import img1 from "../../assets/images/F3A4AD9D-25C2-4744-AA48-95979AC7778D.png";
 import ApproachSection from "../../components/clinics/JLT-Clinic/ApproachSection";
 import AppointmentSection from "../../components/Home/AppointmentSection";
